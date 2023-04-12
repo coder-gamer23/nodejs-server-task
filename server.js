@@ -127,10 +127,10 @@ server.on('request', (req, res) => {
     else if (Url_method == 'POST' && route =='/article') {
         handleEmitter.emit('postanarticle', req, res)
     }
-    else if(route.includes('/article?id')){
+    else if(Url_method == 'GET' && route.includes('/article?id')){
         handleEmitter.emit('getArticleagainstId',req,res);
     }
-    else if(route.includes('/deletearticle?id')){
+    else if(Url_method == 'DELETE' && route.includes('/article?id')){
         handleEmitter.emit('deleteArticleagainstId', req,res);
     }
 })
